@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="modalDlg.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="modalDlg.js"></script>
+    <script>
+        $(document).ready(function () {
+            var buttonOK = {
+                        title: "OK",
+                        func: () => console.log("foo"),
+            };
+            var buttonCancel = {
+                        title: "Cansel",
+                        func: () => console.log("bar"),
+            };
+
+            var modalDlg = new ModalDlg("hello", "How are you?", buttonOK, buttonCancel);
+            $('.openDlg').on('click', function(){
+                modalDlg.show();
+            });
+
+        });
+    </script>
+</head>
+<body>
+<input class="openDlg" type="button" value="pam">
+</body>
+</html>
