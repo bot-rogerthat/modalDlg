@@ -22,7 +22,9 @@ class ModalDlg {
         $('.dialog').animate({opacity: 0, top: '45%'}, 100, function () {
             $('.dialog').css('display', 'none');
             $('.overlay').fadeOut(100);
-            $(this).children().remove();
+            $('div.dialog').empty();
+            $('div.dialog').remove();
+            $('div.overlay').remove();
         });
     }
 
