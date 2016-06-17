@@ -22,9 +22,9 @@ class ModalDlg {
         $('.dialog').animate({opacity: 0, top: '45%'}, 100, function () {
             $('.dialog').css('display', 'none');
             $('.overlay').fadeOut(100);
-            $('div.dialog').empty();
-            $('div.dialog').remove();
-            $('div.overlay').remove();
+            $('.dialog').empty();
+            $('.dialog').remove();
+            $('.overlay').remove();
         });
     }
 
@@ -41,14 +41,12 @@ class ModalDlg {
     }
 
     createButtons() {
-        var dlg = this.selector;
-        var self = this;
         $.each(this.buttons, function (i, val) {
             $('<button/>').text(val.title).on('click', function () {
                 val.func();
-                self.hide();
-            }).addClass('modalDlgButton').appendTo(dlg);
-        });
+                this.hide();
+            }.bind(this)).addClass('modalDlgButton').appendTo(this.selector);
+        }.bind(this));
     }
 }
 
